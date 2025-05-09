@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Preline UI */
+@import "preline/variants.css";
+
 @theme {
     --color-brown1: #553d2a;
     --color-brown2: #69503c;
@@ -7,4 +10,5 @@
     --color-brown4: #907761;
     --color-brown5: #c7b69f;
     --color-brown6: #fff9e1;
+    --color-green: #a0df58;
 }

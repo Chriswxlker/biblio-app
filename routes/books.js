@@ -29,7 +29,7 @@ router.post('/add', (req, res) => {
 
   if (!name || !author) {
     errors = true;
-    req.flash('error', 'Please enter name and author');
+    req.flash('error', 'Por favor escribe el nombre y el autor del libro');
     return res.render('books/add', { name, author });
   }
 
@@ -40,7 +40,7 @@ router.post('/add', (req, res) => {
         req.flash('error', err);
         return res.render('books/add', form_data);
       } else {
-        req.flash('success', 'Book successfully added');
+        req.flash('success', 'Libro añadido correctamente');
         res.redirect('/books');
       }
     });
@@ -76,7 +76,7 @@ router.post('/update/:id', (req, res) => {
 
   if (!name || !author) {
     errors = true;
-    req.flash('error', 'Please enter name and author');
+    req.flash('error', 'Por favor escribe el nombre y el autor del libro');
     return res.render('books/edit', { id, name, author });
   }
 
@@ -87,7 +87,7 @@ router.post('/update/:id', (req, res) => {
         req.flash('error', err);
         return res.render('books/edit', { id, name, author });
       } else {
-        req.flash('success', 'Book successfully updated');
+        req.flash('success', 'Libro actualizado con éxito!');
         res.redirect('/books');
       }
     });
@@ -102,7 +102,7 @@ router.get('/delete/:id', (req, res) => {
     if (err) {
       req.flash('error', err);
     } else {
-      req.flash('success', `Book successfully deleted! ID = ${id}`);
+      req.flash('success', `Libro eliminado con éxito! ID = ${id}`);
     }
     res.redirect('/books');
   });

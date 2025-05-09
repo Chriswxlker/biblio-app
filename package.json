@@ -19,6 +19,7 @@
     "morgan": "~1.9.1",
     "mysql": "^2.17.1",
     "mysql2": "^3.14.1",
+    "preline": "^3.0.1",
     "tailwindcss": "^4.1.5"
   },
   "description": "Tutorial Link: [Node.js Simple CRUD with Express.js and MySQL](https://shouts.dev/articles/nodejs-simple-crud-with-expressjs-and-mysql)",

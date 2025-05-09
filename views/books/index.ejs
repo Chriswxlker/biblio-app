@@ -5,16 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Books</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script src="./assets/vendor/preline/dist/preline.js"></script>
   </head>
   <body class="min-h-screen bg-gradient-to-t from-zinc-900 via-gray-900 to-slate-900 text-white p-6">
-    <div class="max-w-5xl mx-auto">
+    
+    <!-- ========== HEADER ========== -->
+    <header class="sticky top-4 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full before:absolute before:inset-0 before:max-w-5xl before:mx-2 lg:before:mx-auto before:rounded-full before:bg-neutral-800/30 before:backdrop-blur-md mb-10">
+      <nav class="relative max-w-5xl w-full py-2.5 ps-5 pe-2 md:flex md:items-center md:justify-between md:py-0 mx-2 lg:mx-auto">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <!-- Logo -->
+            <a class="flex-none rounded-md text-xl inline-block font-semibold focus:outline-hidden focus:opacity-80" href="" aria-label="Biblio-App">
+              <h1 class="text-4xl font-bold">📚 Biblioteca</h1>
+              
+            </a>
+            <!-- End Logo -->
+          
+            <div class="ms-1 sm:ms-2">
+            
+            </div>
+          </div>
+        
+          <div class="md:hidden">
+            <button type="button" class="hs-collapse-toggle size-8 flex justify-center items-center text-sm font-semibold rounded-full bg-neutral-800 text-white disabled:opacity-50 disabled:pointer-events-none" id="hs-navbar-floating-dark-collapse" aria-expanded="false" aria-controls="hs-navbar-floating-dark" aria-label="Toggle navigation" data-hs-collapse="#hs-navbar-floating-dark">
+              <svg class="hs-collapse-open:hidden shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
+              <svg class="hs-collapse-open:block hidden shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+          </div>
+        </div>
+      
+        <!-- Collapse -->
+        <div id="hs-navbar-floating-dark" class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow md:block" aria-labelledby="hs-navbar-floating-dark-collapse">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-end gap-y-3 py-2 md:py-0 md:ps-7">
+            <a class="pe-3 ps-px sm:px-3 md:py-4 text-sm text-white hover:text-neutral-300 focus:outline-hidden focus:text-neutral-300" href="/" aria-current="page">← Salir</a>
+            <div>
+              <a class="group inline-flex items-center gap-x-2 py-2 px-3 bg-[#ff0] font-medium text-sm text-neutral-800 rounded-full focus:outline-hidden" href="/books/add">
+                +Añadir libro
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- End Collapse -->
+      </nav>
+    </header>
+    <!-- ========== END HEADER ========== -->
 
-      <div class="flex justify-between items-center mb-6">
-        <h1 class="text-4xl font-bold">📚 Books</h1>
-        <a href="/books/add" class="bg-gradient-to-r from-violet-900 to-fuchsia-900 hover:bg-purple-700 text-white px-4 py-2 rounded-lg shadow-md transition">
-          + Add Book
-        </a>
-      </div>
+    <div class="max-w-5xl mx-auto">
 
       <% if (messages.success) { %>
         <div class="bg-green-600/20 border border-green-400 text-green-300 px-4 py-2 rounded mb-4 shadow">
@@ -33,10 +69,10 @@
           <table class="min-w-full text-sm text-gray-200">
             <thead class="bg-white/10 text-gray-300 uppercase text-xs">
               <tr>
-                <th class="text-left px-6 py-3">#</th>
-                <th class="text-left px-6 py-3">Name</th>
-                <th class="text-left px-6 py-3">Author</th>
-                <th class="text-left px-6 py-3">Action</th>
+                <th class="text-left px-6 py-3">ID</th>
+                <th class="text-left px-6 py-3">Nombre</th>
+                <th class="text-left px-6 py-3">Autor</th>
+                <th class="text-left px-6 py-3">Acciones</th>
               </tr>
             </thead>
             <tbody>
@@ -46,8 +82,8 @@
                   <td class="px-6 py-3"><%= book.name %></td>
                   <td class="px-6 py-3"><%= book.author %></td>
                   <td class="px-6 py-3 space-x-2">
-                    <a href="/books/edit/<%= book.id %>" class="bg-yellow-500 hover:bg-yellow-600 text-black px-3 py-1 rounded text-sm shadow transition">Edit</a>
-                    <a href="/books/delete/<%= book.id %>" onclick="return confirm('Are you sure?')" class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded text-sm shadow transition">Delete</a>
+                    <a href="/books/edit/<%= book.id %>" class="bg-yellow-500 hover:bg-yellow-600 text-black px-3 py-1 rounded text-sm shadow transition">Editar</a>
+                    <a href="/books/delete/<%= book.id %>" onclick="return confirm('Are you sure?')" class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded text-sm shadow transition">Eliminar</a>
                   </td>
                 </tr>
               <% }) %>
@@ -55,7 +91,7 @@
           </table>
         </div>
       <% } else { %>
-        <p class="text-center text-gray-300 mt-10 text-lg">No book found!</p>
+        <p class="text-center text-gray-300 mt-10 text-lg">No hay ningún libro!</p>
       <% } %>
 
     </div>
