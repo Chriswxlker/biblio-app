@@ -17,5 +17,20 @@
     "morgan": "~1.9.1",
     "mysql": "^2.17.1",
     "mysql2": "^3.14.1"
-  }
+  },
+  "description": "Tutorial Link: [Node.js Simple CRUD with Express.js and MySQL](https://shouts.dev/articles/nodejs-simple-crud-with-expressjs-and-mysql)",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chriswxlker/biblio-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chriswxlker/biblio-app/issues"
+  },
+  "homepage": "https://github.com/Chriswxlker/biblio-app#readme"
 }

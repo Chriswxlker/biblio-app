@@ -5,7 +5,8 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const flash = require('express-flash');
 const session = require('express-session');
-const connection = require('./lib/db'); // Aún se usa, aunque no se llama directamente aquí
+const mysql = require('mysql2');
+const connection = require('./lib/db');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
