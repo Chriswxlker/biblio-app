@@ -1,13 +1,52 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel="stylesheet" href="/stylesheets/output.css">
-  </head>
-  <body class="flex items-center justify-center min-h-screen text-center bg-gradient-to-t from-zinc-900 via-gray-900 to-slate-900">
-    <div>
-      <h1 class="text-8xl font-bold text-white mb-4">Biblio - App</h1>
-      <button type="button" class="bg-[#ff0] text-neutral-800 rounded-lg text-2xl px-5 py-2.5 text-center me-2 mb-2"><a href="/books">INGRESAR →</a></button>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/stylesheets/output.css">
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      particlesJS("particles-js", {
+        "particles": {
+          "number": { "value": 50, "density": { "enable": true, "value_area": 800 } },
+          "color": { "value": "#facc15" },
+          "shape": { "type": "circle" },
+          "opacity": { "value": 0.4, "random": true },
+          "size": { "value": 3, "random": true },
+          "line_linked": { "enable": false },
+          "move": { "enable": true, "speed": 1, "direction": "none", "random": true }
+        }
+      });
+    });
+  </script>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-gray-900 to-slate-900 text-white flex items-center justify-center font-sans antialiased">
+  <!-- Contenedor de partículas -->
+  <div id="particles-js" class="absolute inset-0 -z-10"></div>
+
+  <main class="max-w-3xl text-center p-6">
+    <!-- Título principal -->
+    <div class="backdrop-blur-sm bg-white/5 p-8 rounded-2xl border border-gray-700/30 shadow-2xl mb-8">
+      <h1 class="text-6xl md:text-8xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-yellow-500">
+        BiblioApp
+      </h1>
+      <p class="text-gray-300 text-lg md:text-xl mt-4">
+        Explora, organiza y disfruta de tu biblioteca digital.
+      </p>
     </div>
-  </body>
+
+    <!-- Botón de acción principal -->
+    <a href="/books" class="relative inline-block group">
+      <span class="absolute inset-0 bg-yellow-400 rounded-xl transform group-hover:scale-105 transition-all duration-300 opacity-100 group-hover:opacity-80 shadow-lg shadow-yellow-400/20"></span>
+      <span class="relative flex items-center justify-center gap-2 text-gray-900 font-semibold text-xl px-8 py-3 rounded-xl border-2 border-yellow-400 tracking-wide transition-all duration-300 group-hover:translate-y-0.5">
+        Explorar Libros
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mt-0.5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+        </svg>
+      </span>
+    </a>
+  </main>
+</body>
 </html>

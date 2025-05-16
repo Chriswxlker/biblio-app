@@ -1,15 +1,17 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Añadir libro</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <link rel="stylesheet" href="/stylesheets/output.css">
   </head>
-  <body class="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center p-4">
+  <body class="min-h-screen bg-gradient-to-br from-gray-900 to-slate-900 text-white flex items-center justify-center p-4 font-sans antialiased">
 
-    <div class="w-full max-w-md bg-white rounded-2xl shadow-lg p-8 space-y-6">
-      <h1 class="text-2xl font-bold text-center text-gray-800">Añade un nuevo libro</h1>
+    <div class="w-full max-w-2xl bg-white/5 rounded-2xl shadow-2xl p-8 space-y-6 border border-gray-700/30">
+      <h1 class="text-3xl font-extrabold text-center bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-yellow-500">
+        Añadir un nuevo libro
+      </h1>
 
       <% if (messages.error) { %>
         <div class="bg-red-100 text-red-800 px-4 py-2 rounded-lg text-sm border border-red-300">
@@ -18,37 +20,99 @@
       <% } %>
 
       <form action="/books/add" method="post" class="space-y-5">
+        <!-- Nombre -->
         <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1">Nombre</label>
+          <label class="block text-sm font-medium text-gray-300 mb-1">Nombre</label>
           <input
             type="text"
             name="name"
             value="<%= name %>"
             autocomplete="off"
-            class="w-full rounded-lg border border-gray-300 px-4 py-2 focus:ring-2 focus:ring-blue-400 focus:outline-none"
+            class="w-full rounded-lg border border-gray-700 bg-gray-800 text-white px-4 py-2 focus:ring-2 focus:ring-yellow-400 focus:outline-none"
           />
         </div>
 
+        <!-- ISBN -->
         <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1">Autor</label>
+          <label class="block text-sm font-medium text-gray-300 mb-1">ISBN</label>
+          <input
+            type="text"
+            name="isbn"
+            value="<%= isbn %>"
+            autocomplete="off"
+            class="w-full rounded-lg border border-gray-700 bg-gray-800 text-white px-4 py-2 focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+          />
+        </div>
+
+        <!-- Autor -->
+        <div>
+          <label class="block text-sm font-medium text-gray-300 mb-1">Autor</label>
           <input
             type="text"
             name="author"
             value="<%= author %>"
             autocomplete="off"
-            class="w-full rounded-lg border border-gray-300 px-4 py-2 focus:ring-2 focus:ring-blue-400 focus:outline-none"
+            class="w-full rounded-lg border border-gray-700 bg-gray-800 text-white px-4 py-2 focus:ring-2 focus:ring-yellow-400 focus:outline-none"
           />
         </div>
 
+        <!-- Editorial -->
+        <div>
+          <label class="block text-sm font-medium text-gray-300 mb-1">Editorial</label>
+          <input
+            type="text"
+            name="publisher"
+            value="<%= publisher %>"
+            autocomplete="off"
+            class="w-full rounded-lg border border-gray-700 bg-gray-800 text-white px-4 py-2 focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+          />
+        </div>
+
+        <!-- Año de publicación -->
+        <div>
+          <label class="block text-sm font-medium text-gray-300 mb-1">Año de publicación</label>
+          <input
+            type="number"
+            name="publication_year"
+            value="<%= publication_year %>"
+            autocomplete="off"
+            class="w-full rounded-lg border border-gray-700 bg-gray-800 text-white px-4 py-2 focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+          />
+        </div>
+
+        <!-- Número de páginas -->
+        <div>
+          <label class="block text-sm font-medium text-gray-300 mb-1">Número de páginas</label>
+          <input
+            type="number"
+            name="page_count"
+            value="<%= page_count %>"
+            autocomplete="off"
+            class="w-full rounded-lg border border-gray-700 bg-gray-800 text-white px-4 py-2 focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+          />
+        </div>
+
+        <!-- Categoría -->
+        <div>
+          <label class="block text-sm font-medium text-gray-300 mb-1">Categoría</label>
+          <input
+            type="text"
+            name="category"
+            value="<%= category %>"
+            autocomplete="off"
+            class="w-full rounded-lg border border-gray-700 bg-gray-800 text-white px-4 py-2 focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+          />
+        </div>
+
+        <!-- Botones -->
         <div class="flex items-center">
-          <a class="w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-200 shadow-md mr-2.5" href="/books">← Cancelar</a>
+          <a class="w-full text-center bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-semibold py-2 px-4 rounded-lg transition duration-200 shadow-md mr-2.5" href="/books">← Cancelar</a>
           <button
             type="submit"
-            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-200 shadow-md"
+            class="w-full bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-semibold py-2 px-4 rounded-lg transition duration-200 shadow-md"
           >
             Añadir libro
           </button>
-          
         </div>
       </form>
     </div>
